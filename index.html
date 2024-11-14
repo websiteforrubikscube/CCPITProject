@@ -1,0 +1,93 @@
+<html>
+    <head>
+      <script src="/main.js"></script>  
+      <style>
+        body{font-family:Arial, Helvetica, sans-serif;}
+        h1{font-size: 4em;}
+        h2{font-size: 2em;}
+        p{font-size: 1.75em;font-weight: 500;}
+        .mainmenuscreens{display:flex;justify-content:center;align-content:flex-start;flex-wrap:wrap;width: 40%;height: 70%;border-style: solid;border-width: 2px;background-color: lightblue;}
+        .removeass{text-align: center;height:2em;margin-left: 1%;}
+        .assignment{display: flex;flex-wrap: nowrap;align-items:center;justify-content:center;height: 10%;width: 95%;}
+        .mainmenubuttons{display:flex;justify-content:center;align-items:center;width: 100%;height: 33.333%;border-bottom-style:solid;border-bottom-width: 2px;background-color: lightblue;}
+      </style>
+    </head>
+    <body style="display: flex;text-align: center;justify-content: center;" onload="BootUp();">
+        <div id="login">
+            <h1>Log-In/Sign-Up</h1>
+            <label for="uname" style="font-size: 3em;">User name:</label><br>
+            <input type="text" id="uname" name="uname" style="font-size: 2em;"><br><br>
+            <label for="password" style="font-size: 3em;">Password:</label><br>
+            <input type="password" id="password" name="password" style="font-size: 2em;"><br><br>
+            <label for="remember" style="font-size: 1.5em;">Remember Me?</label><br>
+            <input type="checkbox" id="remember" name="remember"><br><br>
+            <input type="button" value="Log In" style="font-size: 2em;" onclick="LogIn(0);"><br><br>
+            <input type="button" value="Website Blocked Example" style="font-size: 2em;" onclick="Examples(0);"><br><br>
+            <input type="button" value="Apps Blocked Example" style="font-size: 2em;" onclick="Examples(1);"><br><br>
+            <input type="button" value="Notification Example" style="font-size: 2em;" onclick="Examples(2);">
+            <img src="ex1.png" id="ex1" style="display: none;"><br>
+            <img src="ex2.png" id="ex2" style="display: none;"><br>
+            <img src="ex3.png" id="ex3" style="display: none;">
+        </div>
+        <div id="mainscreen" style="display: none;justify-content: center;width: 100%;flex-wrap: wrap;">
+            <div id="addtask" style="display:none;position: absolute;align-self: center;height: 50%;width: 40%;background-color: white;border-style: solid;border-width: 2px;text-align: center;">
+                <h1 style="font-size: 2em;">Add Task</h1>
+                <label for="name" style="font-size: 1.5em;">Task Name:</label><br>
+                <input type="text" id="name" name="name" style="font-size: 1.5em;"><br><br>
+                <label for="duedate" style="font-size: 1.5em;">Due Date:</label><br>
+                <input type="date" id="duedate" name="duedate" style="font-size: 1.5em;"><br><br>
+                <label for="esttime" style="font-size: 1.5em;">Estimated Time(mins):</label><br>
+                <input type="number" id="esttime" name="esttime" style="font-size: 1.5em;width: 5em;"><br><br>
+                <input type="button" value="Add Task" style="font-size: 1.5em;" onclick="AddTask(1);">
+                <input type="button" value="Cancel" style="font-size: 1.5em;" onclick="AddTask(3);">   
+            </div>
+            <h1 id="workperiod" style="width: 80%;font-size: 3em;">Your Next Work Period is At: 3:00 PM</h1>
+            <div class="mainmenuscreens" id="todo" style="margin-right: 3%;">
+                <h2 style="height: 7%;width: 100%;">Todo List(Click To Edit):</h2>
+                <!-- Example of How Assignment Would Look, Not Supposed to Be Readable Really -->
+                <div class="assignment" id="assignment0">
+                    <p onclick="AssignmentChange(0, 0);" id="assignment0text">2.1 Calc HW | 20 mins | 11/15/24</p>
+                    <div id="assignment0change" style="display: none;align-items: center;">
+                        <p>2.1 Calc HW</p>
+                        <input type="number" id="assignment0time" name="assignment0time" style="font-size: 1.75em;width: 2.5em;height: 1.75em;"><br><br>
+                        <p>mins</p>
+                        <input type="button" value="Save" style="font-size: 1.5em;width: 4em;height: 1.5em;margin-left: 1%;" onclick="AssignmentChange(1, 0);">
+                        <input type="button" value="Cancel" style="font-size: 1.5em;width: 4em;height: 1.5em;margin-left: 1%;" onclick="AssignmentChange(2, 0);">
+                    </div>
+                    <input class="removeass" type="button" value="X" onclick="RemoveAssignment(0);">
+                </div>
+            </div>
+            <div class="mainmenuscreens" id="buttons" style="margin-left: 3%;background-color: white;">
+                <div class="mainmenubuttons" onclick="LogIn(1);">
+                    <h2>Log Out</h2>
+                </div>
+                <div class="mainmenubuttons" onclick="Settings(0);">
+                    <h2>Settings</h2>
+                </div>
+                <div class="mainmenubuttons" onclick="AddTask(0);">
+                    <h2>Add Task</h2>
+                </div>
+            </div>
+        </div>
+        <div id="settings" style="display: none;">
+            <h1>Settings</h1>
+            <label for="wstime" style="font-size: 1.5em;">Work Period Start Time:</label><br>
+            <input type="time" id="wstime" name="wstime" style="font-size: 1.5em;"><br><br>
+            <label for="wetime" style="font-size: 1.5em;">Work Period End Time:</label><br>
+            <input type="time" id="wetime" name="wetime" style="font-size: 1.5em;"><br><br>
+            <label for="wdays" style="font-size: 1.5em;">Work Days:</label><br>
+            <select name="wdays" id="wdays">
+                <option value="0">Weekdays</option>
+                <option value="1">Weekends</option>
+                <option value="2">All-Days</option>
+            </select><br><br>
+            <label for="autofetch" style="font-size: 1.5em;">Auto-Fetch Assignments:</label>
+            <input type="checkbox" id="autofetch" name="autofetch" value="autofetch"><br><br>
+            <label for="autoschedule" style="font-size: 1.5em;">Smart Auto-Scheduling:</label>
+            <input type="checkbox" id="autoschedule" name="autoschedule" value="autoschedule"><br><br>
+            <label for="scheduletime" style="font-size: 1.5em;">Auto Scheduler Time(Days Before Due Date):</label><br>
+            <input type="number" id="scheduletime" name="scheduletime" style="font-size: 1.5em;width: 2em;"><br><br>
+            <input type="button" value="Save" style="font-size: 1.5em;" onclick="Settings(1);">
+        </div>
+    </body>
+</html>
