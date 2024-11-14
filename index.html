@@ -72,9 +72,9 @@
         <div id="settings" style="display: none;">
             <h1>Settings</h1>
             <label for="wstime" style="font-size: 1.5em;">Work Period Start Time:</label><br>
-            <input type="time" id="wstime" name="wstime" style="font-size: 1.5em;"><br><br>
+            <input type="time" id="wstime" name="wstime" style="font-size: 1.5em;" value="15:00"><br><br>
             <label for="wetime" style="font-size: 1.5em;">Work Period End Time:</label><br>
-            <input type="time" id="wetime" name="wetime" style="font-size: 1.5em;"><br><br>
+            <input type="time" id="wetime" name="wetime" style="font-size: 1.5em;" value="18:00"><br><br>
             <label for="wdays" style="font-size: 1.5em;">Work Days:</label><br>
             <select name="wdays" id="wdays">
                 <option value="0">Weekdays</option>
@@ -86,7 +86,7 @@
             <label for="autoschedule" style="font-size: 1.5em;">Smart Auto-Scheduling:</label>
             <input type="checkbox" id="autoschedule" name="autoschedule" value="autoschedule"><br><br>
             <label for="scheduletime" style="font-size: 1.5em;">Auto Scheduler Time(Days Before Due Date):</label><br>
-            <input type="number" id="scheduletime" name="scheduletime" style="font-size: 1.5em;width: 2em;"><br><br>
+            <input type="number" id="scheduletime" name="scheduletime" style="font-size: 1.5em;width: 2em;" value="1"><br><br>
             <input type="button" value="Save" style="font-size: 1.5em;" onclick="Settings(1);">
         </div>
     </body>
