@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html style="height: 100%;width: 100%;">
     <head>
       <script src="/main.js"></script>  
       <style>
@@ -12,7 +13,7 @@
         .mainmenubuttons{display:flex;justify-content:center;align-items:center;width: 100%;height: 33.333%;border-bottom-style:solid;border-bottom-width: 2px;background-color: lightblue;}
       </style>
     </head>
-    <body style="display: flex;text-align: center;justify-content: center;" onload="BootUp();">
+    <body style="display: flex;text-align: center;justify-content: center;background-color: white;height: 100%;" onload="BootUp();">
         <div id="login">
             <h1>Log-In/Sign-Up</h1>
             <label for="uname" style="font-size: 3em;">User name:</label><br>
@@ -29,7 +30,7 @@
             <img src="ex2.png" id="ex2" style="display: none;"><br>
             <img src="ex3.png" id="ex3" style="display: none;">
         </div>
-        <div id="mainscreen" style="display: none;justify-content: center;width: 100%;flex-wrap: wrap;">
+        <div id="mainscreen" style="display: none;justify-content: center;width: 100%;height:100%;flex-wrap: wrap;">
             <div id="addtask" style="display:none;position: absolute;align-self: center;height: 50%;width: 40%;background-color: white;border-style: solid;border-width: 2px;text-align: center;">
                 <h1 style="font-size: 2em;">Add Task</h1>
                 <label for="name" style="font-size: 1.5em;">Task Name:</label><br>
@@ -57,7 +58,7 @@
                     <input class="removeass" type="button" value="X" onclick="RemoveAssignment(0);">
                 </div>
             </div>
-            <div class="mainmenuscreens" id="buttons" style="margin-left: 3%;background-color: white;">
+            <div class="mainmenuscreens" id="buttons" style="margin-left: 3%;">
                 <div class="mainmenubuttons" onclick="LogIn(1);">
                     <h2>Log Out</h2>
                 </div>
@@ -85,8 +86,14 @@
             <input type="checkbox" id="autofetch" name="autofetch" value="autofetch"><br><br>
             <label for="autoschedule" style="font-size: 1.5em;">Smart Auto-Scheduling:</label>
             <input type="checkbox" id="autoschedule" name="autoschedule" value="autoschedule"><br><br>
+            <label for="notification" style="font-size: 1.5em;">Send Notifications?</label>
+            <input type="checkbox" name="notification"><br><br>
             <label for="scheduletime" style="font-size: 1.5em;">Auto Scheduler Time(Days Before Due Date):</label><br>
             <input type="number" id="scheduletime" name="scheduletime" style="font-size: 1.5em;width: 2em;" value="1"><br><br>
+            <label for="pcolor" style="font-size: 1.5em;">Background Primary Color:</label><br>
+            <input type="color" id="pcolor" name="pcolor" style="font-size: 1.5em;width: 2em;" value="#FFFFFF"><br><br>
+            <label for="scolor" style="font-size: 1.5em;">Background Secondary Color:</label><br>
+            <input type="color" id="scolor" name="scolor" style="font-size: 1.5em;width: 2em;" value="#ADD8E6"><br><br>
             <input type="button" value="Save" style="font-size: 1.5em;" onclick="Settings(1);">
         </div>
     </body>
