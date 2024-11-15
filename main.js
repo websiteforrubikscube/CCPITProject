@@ -8,6 +8,8 @@ var autoschedule = false;
 var autoscheduletime = 1;
 var workassignment = currentassignments[1];
 var autoassignedevent = false;
+var pcolor="#FFFFFF";
+var scolor="#ADD8E6";
 var uname;
 var password;
 function BootUp(){
@@ -150,6 +152,22 @@ function Settings(type) {
                 autofetch = document.getElementById("autofetch").checked;
                 autoschedule = document.getElementById("autoschedule").checked;
                 autoscheduletime = document.getElementById("scheduletime").value;
+                pcolor = document.getElementById("pcolor").value;
+                scolor = document.getElementById("scolor").value;
+                let elements = document.getElementsByClassName('mainmenuscreens');
+                for (var i in elements) {
+                    if (elements.hasOwnProperty(i)) {
+                    elements[i].style.backgroundColor=scolor;
+                    }
+                }
+                elements = document.getElementsByClassName('mainmenubuttons');
+                for (var i in elements) {
+                    if (elements.hasOwnProperty(i)) {
+                    elements[i].style.backgroundColor=scolor;
+                    }
+                }
+                document.body.style.backgroundColor = pcolor;
+                document.getElementById("addtask").style.backgroundColor = pcolor;
                 document.getElementById("mainscreen").style.display = "flex";
                 document.getElementById("settings").style.display = "none";
                 UpdateWorkPeriod();
